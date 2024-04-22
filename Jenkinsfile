@@ -11,7 +11,7 @@ pipeline {
       }
       stage( 'Build Docker image'){
         steps {
-          sh 'docker buildx build --platform linux/amd64 -t swe-backend .'
+          sh 'docker buildx build --platform linux/amd64 -t students .'
         }
       }
       stage('Login to Docker Hub') {
@@ -21,12 +21,12 @@ pipeline {
           }
         }
       }
-      stage('Push Docker image') {
+      stage('Pushing Docker image') {
         steps {
           sh 'docker push nreddyre/students'
         }
       }
-      stage('Deployment') {
+      stage('Deployment on k8') {
         steps {
           sh 'kubectl rollout restart deployment/deploy1'
         }
