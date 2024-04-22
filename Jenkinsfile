@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl set image deployment/deploy1 container-0=nreddyre/students:latest -n default'
-			    sh 'kubectl rollout restart deploy deploy1 -n default'
+		sh 'kubectl rollout restart deploy deploy1 -n default'
             }
         }
     }
