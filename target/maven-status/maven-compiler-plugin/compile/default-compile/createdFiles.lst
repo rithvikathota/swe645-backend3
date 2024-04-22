@@ -1,0 +1,5 @@
+net/javaguides/springboot/repository/StudentRepository.class
+net/javaguides/springboot/model/Student.class
+net/javaguides/springboot/Swe642Assgn2Application.class
+net/javaguides/springboot/exception/ResourceNotFoundException.class
+net/javaguides/springboot/controller/StudentController.class
