@@ -4,8 +4,7 @@ pipeline{
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
   stages{
-    stage('Build') {
-      steps {
+    steps {
         sh 'mvn clean install'
       }
       post {
@@ -21,7 +20,7 @@ pipeline{
     }
     stage("Push image to docker hub"){
       steps {
-        sh "sudo docker push nreddyre/students:latest"
+        sh 'docker push nreddyre/students:latest'
       }
     }
         stage("deploying on k8")
