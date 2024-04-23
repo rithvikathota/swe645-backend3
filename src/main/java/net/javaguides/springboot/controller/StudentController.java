@@ -43,50 +43,50 @@ public class StudentController {
 		return studentRepository.findAll();
 	} 
 	
-//	@PostMapping("/student")
-//	public Student createStudent(@RequestBody Student student) {
-//		return studentRepository.save(student);
-//	}
-//
+	@PostMapping("/student")
+	public Student createStudent(@RequestBody Student student) {
+		return studentRepository.save(student);
+	}
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Student> getStudentById(@PathVariable long id) {
 		Student student = studentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Student doesn't exist"));
 		return ResponseEntity.ok(student);
 	}
 
-//
-//	@PutMapping("/student/{id}")
-//	public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentDetails) {
-//	    Student student = studentRepository.findById(id)
-//	            .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
-//
-//	    // updating properties
-//	    student.setFirstname(studentDetails.getFirstname());
-//	    student.setLastname(studentDetails.getLastname());
-//	    student.setStreet(studentDetails.getStreet());
-//	    student.setCity(studentDetails.getCity());
-//	    student.setState(studentDetails.getState());
-//	    student.setZip(studentDetails.getZip());
-//	    student.setEmail(studentDetails.getEmail());
-//	    student.setTelephone(studentDetails.getTelephone());
-//	    student.setDate(studentDetails.getDate());
-//	    student.setMostliked(studentDetails.getMostliked());
-//	    student.setInterest(studentDetails.getInterest());
-//	    student.setLikelihood(studentDetails.getLikelihood());
-//	    student.setComments(studentDetails.getComments());
-//
-//	    final Student updatedStudent = studentRepository.save(student);
-//	    return ResponseEntity.ok(updatedStudent);
-//	}
-//
-//	@DeleteMapping("/student/{id}")
-//	public ResponseEntity<Map<String,Boolean>> deleteStudent(@PathVariable Long id){
-//		Student student = studentRepository.findById(id)
-//	            .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
-//
-//		studentRepository.delete(student);
-//		Map<String,Boolean> response = new HashMap<>();
-//		response.put("deleted", Boolean.TRUE);
-//		return ResponseEntity.ok(response);
-//	}
+
+	@PutMapping("/student/{id}")
+	public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentDetails) {
+	    Student student = studentRepository.findById(id)
+	            .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
+
+	    // updating properties
+	    student.setFirstname(studentDetails.getFirstname());
+	    student.setLastname(studentDetails.getLastname());
+	    student.setStreet(studentDetails.getStreet());
+	    student.setCity(studentDetails.getCity());
+	    student.setState(studentDetails.getState());
+	    student.setZip(studentDetails.getZip());
+	    student.setEmail(studentDetails.getEmail());
+	    student.setTelephone(studentDetails.getTelephone());
+	    student.setDate(studentDetails.getDate());
+	    student.setMostliked(studentDetails.getMostliked());
+	    student.setInterest(studentDetails.getInterest());
+	    student.setLikelihood(studentDetails.getLikelihood());
+	    student.setComments(studentDetails.getComments());
+
+	    final Student updatedStudent = studentRepository.save(student);
+	    return ResponseEntity.ok(updatedStudent);
+	}
+
+	@DeleteMapping("/student/{id}")
+	public ResponseEntity<Map<String,Boolean>> deleteStudent(@PathVariable Long id){
+		Student student = studentRepository.findById(id)
+	            .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
+
+		studentRepository.delete(student);
+		Map<String,Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
+	}
 }
