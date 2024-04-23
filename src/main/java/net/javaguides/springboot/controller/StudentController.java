@@ -20,8 +20,8 @@ import net.javaguides.springboot.exception.ResourceNotFoundException;
 import net.javaguides.springboot.model.Student;
 import net.javaguides.springboot.repository.StudentRepository;
 
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin
 @RestController
 @RequestMapping("students")
 public class StudentController {
